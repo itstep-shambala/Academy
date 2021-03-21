@@ -29,9 +29,9 @@ void InputStudent(vector<Student>& students)
     cout << "Введите имя - "; cin >> temp.personal_info.name;
     cout << "Введите возраст - "; cin >> temp.personal_info.age;
     cout << "Введите пол: M - мужской, F - женский"; cin >> temp_sex;
-    if (temp_sex == 'M') {
+    if (temp_sex == 'M' || temp_sex == 'm') {
         temp.personal_info.sex = Sex::Male;
-    } else if (temp_sex == 'F') {
+    } else if (temp_sex == 'F' || temp_sex == 'f') {
         temp.personal_info.sex = Sex::Female;
     } else {
         temp.personal_info.sex = Sex::Unknown;
@@ -39,9 +39,10 @@ void InputStudent(vector<Student>& students)
     cout << "Введите рейтинг - "; cin >> temp.rating;
     cout << "Введите факультет: S - РПО, D - КГиД";
     cin >> temp_faculty;
-    if (temp_faculty == 'S') {
+    if (temp_faculty == 'S' || temp_faculty == 's') {
         temp.faculty = Faculty::SoftDev;
-    } else if (temp_faculty == 'D') {
+    }
+    else if (temp_faculty == 'D' || temp_faculty == 'd') {
         temp.faculty = Faculty::Design;
     } else { temp.faculty = Faculty::None; }
     students.push_back(temp);
