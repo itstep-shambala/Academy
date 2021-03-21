@@ -2,7 +2,7 @@
 
 #include "Person.h"
 
-enum Faculty { SoftDev, Design, None };
+enum Faculty { SoftDev, Design, NoneStudent };
 string FacultyToString(Faculty faculty)
 {
     switch (faculty) {
@@ -10,7 +10,7 @@ string FacultyToString(Faculty faculty)
             return "РПО";
         case Design:
             return "КГиД";
-        case None:
+        case NoneStudent:
             return "неуказано";
     }
 }
