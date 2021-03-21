@@ -33,7 +33,7 @@ system("chcp 65001");
                 InputTeacher(teachers);
                 break;
             case '3': // 3. Добавить менеджера
-                //TODO Добавить метод ввода данных о менеджере
+                InputManager(managers);
                 break;
             case '4': // 4. Показать всех студентов
                 ShowStudents(students);
@@ -42,7 +42,7 @@ system("chcp 65001");
                 ShowTeachers(teachers);
                 break;
             case '6': // 6. Показать всех менеджеров
-                //TODO Добавить метод показа всех менеджеров
+                ShowManager(managers);
                 break;
             case '0': // 0. Выход
                 exit = true;

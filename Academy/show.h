@@ -24,3 +24,11 @@ void ShowTeacher(Teacher teacher)
     cout << "Предмет: " << SubjectToString(teacher.subject) << endl;
     cout << "-----------------------------" << endl;
 }
+
+void ShowManager(Manager manager)
+{
+    cout << "=== Информация о преподавателе ===" << endl;
+    cout << manager.personal_info.ToString();
+    cout << "Должность: " << PositionToString(manager.position) << endl;
+    cout << "-----------------------------" << endl;
+}

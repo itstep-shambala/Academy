@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//__________Вывод данных для меню__________
+
 void ShowStudents(vector<Student> students)
 {
     for (auto student : students) {
@@ -20,11 +22,14 @@ void ShowTeachers(vector<Teacher> teachers)
     }
 }
 
-//TODO Написать реализацию по выводу информации о менеджерах
 void ShowManager(vector<Manager> managers)
 {
-    
+    for (auto manager : managers) {
+        ShowManager(manager);
+    }
 }
+
+//__________Ввод данных для меню__________
 
 //TODO Упростить функцию
 void InputStudent(vector<Student>& students)
@@ -54,7 +59,7 @@ void InputStudent(vector<Student>& students)
     students.push_back(temp);
 }
 
-//TODO Написать реализацию по вводу информации о преподавателях
+//TODO Упростить функцию
 void InputTeacher(vector<Teacher>& teachers) {
     Teacher temp;
     char temp_sex, temp_subject;
@@ -82,7 +87,32 @@ void InputTeacher(vector<Teacher>& teachers) {
     teachers.push_back(temp);
 }
 
-//TODO Написать реализацию по вводу информации о менеджерах
+//TODO Упростить функцию
 void InputManager(vector<Manager>& managers) {
-
+    Manager temp;
+    char temp_sex, temp_position;
+    cout << "Ввод данных о менеджере" << endl;
+    cout << "Введите имя - "; cin >> temp.personal_info.name;
+    cout << "Введите возраст - "; cin >> temp.personal_info.age;
+    cout << "Введите пол: M - мужской, F - женский"; cin >> temp_sex;
+    if (temp_sex == 'M' || temp_sex == 'm') {
+        temp.personal_info.sex = Sex::Male;
+    }
+    else if (temp_sex == 'F' || temp_sex == 'f') {
+        temp.personal_info.sex = Sex::Female;
+    }
+    else {
+        temp.personal_info.sex = Sex::Unknown;
+    }
+    cout << "Введите должность: D - Директор, S - Продажи";
+    cin >> temp_position;
+    if (temp_position == 'D' || temp_position == 'd') {
+        temp.position = Position::Director;
+    }
+    else if (temp_position == 'S' || temp_position == 's') {
+        temp.position = Position::Sales;
+    }
+    else { temp.position = Position::NonePosition; }
+    cin >> temp_position;
+    managers.push_back(temp);
 }
