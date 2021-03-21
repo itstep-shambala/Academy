@@ -43,7 +43,7 @@ void InputStudent(vector<Student>& students)
         temp.faculty = Faculty::SoftDev;
     } else if (temp_faculty == 'D') {
         temp.faculty = Faculty::Design;
-    } //TODO Продумать значение по умолчанию или обработку неправильного ввода
+    } else { temp.faculty = Faculty::None; }
     students.push_back(temp);
 }
 
