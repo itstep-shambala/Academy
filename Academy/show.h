@@ -5,6 +5,7 @@
 #include "Student.h"
 #include "Teacher.h"
 #include "Manager.h"
+#include "cli.h"
 
 using namespace std;
 

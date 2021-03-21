@@ -3,6 +3,7 @@
 #include "Person.h"
 
 enum Faculty { SoftDev, Design, NoneStudent };
+
 string FacultyToString(Faculty faculty)
 {
     switch (faculty) {

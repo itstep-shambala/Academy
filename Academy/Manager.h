@@ -2,17 +2,17 @@
 
 #include "Person.h"
 
-enum Position { Director, Sales, NonePosition
-};
+enum Position { Director, Sales, NonePosition};
+
 string PositionToString(Position position)
 {
     switch (position) {
-    case Director:
-        return "Директор";
-    case Sales:
-        return "Продажи";
-    case NonePosition:
-        return "неуказано";
+        case Director:
+            return "Директор";
+        case Sales:
+            return "Продажи";
+        case NonePosition:
+           return "неуказано";
     }
 }
 

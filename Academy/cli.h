@@ -39,7 +39,8 @@ void InputStudent(vector<Student>& students)
     cout << "Ввод данных о студенте" << endl;
     cout << "Введите имя - "; cin >> temp.personal_info.name;
     cout << "Введите возраст - "; cin >> temp.personal_info.age;
-    cout << "Введите пол: M - мужской, F - женский"; cin >> temp_sex;
+    cout << "Введите пол: M - мужской, F - женский" << endl;
+    cin >> temp_sex;
     if (temp_sex == 'M' || temp_sex == 'm') {
         temp.personal_info.sex = Sex::Male;
     } else if (temp_sex == 'F' || temp_sex == 'f') {
@@ -48,7 +49,7 @@ void InputStudent(vector<Student>& students)
         temp.personal_info.sex = Sex::Unknown;
     }
     cout << "Введите рейтинг - "; cin >> temp.rating;
-    cout << "Введите факультет: S - РПО, D - КГиД";
+    cout << "Введите факультет: S - РПО, D - КГиД" << endl;
     cin >> temp_faculty;
     if (temp_faculty == 'S' || temp_faculty == 's') {
         temp.faculty = Faculty::SoftDev;
@@ -66,7 +67,8 @@ void InputTeacher(vector<Teacher>& teachers) {
     cout << "Ввод данных о преподавателе" << endl;
     cout << "Введите имя - "; cin >> temp.personal_info.name;
     cout << "Введите возраст - "; cin >> temp.personal_info.age;
-    cout << "Введите пол: M - мужской, F - женский"; cin >> temp_sex;
+    cout << "Введите пол: M - мужской, F - женский" << endl;
+    cin >> temp_sex;
     if (temp_sex == 'M' || temp_sex == 'm') {
         temp.personal_info.sex = Sex::Male;
     }
@@ -76,8 +78,8 @@ void InputTeacher(vector<Teacher>& teachers) {
     else {
         temp.personal_info.sex = Sex::Unknown;
     }
-    cout << "Введите предмет: G - Компьютерная графика, D - РПО";
-    cin >> temp_subject;
+    cout << "Введите предмет: G - Компьютерная графика, D - РПО" << endl;
+    cin >> temp_subject; //ToDO Не выводит должность
     if (temp_subject == 'G' || temp_subject == 'g') {
         temp.subject = Subject::Graphics;
     }
@@ -94,7 +96,8 @@ void InputManager(vector<Manager>& managers) {
     cout << "Ввод данных о менеджере" << endl;
     cout << "Введите имя - "; cin >> temp.personal_info.name;
     cout << "Введите возраст - "; cin >> temp.personal_info.age;
-    cout << "Введите пол: M - мужской, F - женский"; cin >> temp_sex;
+    cout << "Введите пол: M - мужской, F - женский" << endl;
+    cin >> temp_sex;
     if (temp_sex == 'M' || temp_sex == 'm') {
         temp.personal_info.sex = Sex::Male;
     }
@@ -104,8 +107,8 @@ void InputManager(vector<Manager>& managers) {
     else {
         temp.personal_info.sex = Sex::Unknown;
     }
-    cout << "Введите должность: D - Директор, S - Продажи";
-    cin >> temp_position;
+    cout << "Введите должность: D - Директор, S - Продажи" << endl;
+    cin >> temp_position; // ToDo Не выводит позицию
     if (temp_position == 'D' || temp_position == 'd') {
         temp.position = Position::Director;
     }
@@ -113,6 +116,5 @@ void InputManager(vector<Manager>& managers) {
         temp.position = Position::Sales;
     }
     else { temp.position = Position::NonePosition; }
-    cin >> temp_position;
     managers.push_back(temp);
 }

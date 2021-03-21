@@ -3,6 +3,7 @@
 #include "Person.h"
 
 enum Subject { Graphics, Development, NoneSubject };
+
 string SubjectToString(Subject subject)
 {
     switch (subject) {
