@@ -7,3 +7,5 @@
 1. Сделать форк репозитория - https://github.com/itstep-shambala/Academy - в свой личный аккаунт.
 2. Выполнить задание
 3. Сделать запрос на слияние своего решения с репозиторием - https://github.com/itstep-shambala/Academy
+
+4. Радоваться
