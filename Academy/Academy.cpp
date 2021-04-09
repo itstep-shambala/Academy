@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
+#include <string>
 
 #include "Student.h"
 #include "Teacher.h"
@@ -20,6 +21,9 @@ system("chcp 65001");
 
     bool exit = false;
     char select;
+
+    string path, message;
+
     do {
         ShowMenu();
         cout << "Введите номер: ";
@@ -27,14 +31,38 @@ system("chcp 65001");
 
         switch (select) {
             case '1': // 1. Добавить студента
-                InputStudent(students);
-                break;
+               {path = "01_Students.csv";
+               InputStudent(students, message);
+               bool isWrite = WriteToFile(path, message);
+               if (isWrite) {
+                   cout << "Recording finished: " << path << endl;
+               }
+               else {
+                   cerr << "Recording error: " << path << endl;
+               }
+               break; }
             case '2': // 2. Добавить преподавателя
-                //TODO Добавить метод ввода данных о преподавателе
-                break;
+                {path = "02_Teachers.csv";
+                InputTeacher(teachers, message);
+                bool isWrite = WriteToFile(path, message);
+                if (isWrite) {
+                    cout << "Recording finished: " << path << endl;
+                }
+                else {
+                    cerr << "Recording error: " << path << endl;
+                }
+                break; }
             case '3': // 3. Добавить менеджера
-                //TODO Добавить метод ввода данных о менеджере
-                break;
+                {path = "03_Managers.csv";
+                InputManager(managers, message);
+                bool isWrite = WriteToFile(path, message);
+                if (isWrite) {
+                    cout << "Recording finished: " << path << endl;
+                }
+                else {
+                    cerr << "Recording error: " << path << endl;
+                }
+                break; }
             case '4': // 4. Показать всех студентов
                 ShowStudents(students);
                 break;
@@ -42,7 +70,7 @@ system("chcp 65001");
                 ShowTeachers(teachers);
                 break;
             case '6': // 6. Показать всех менеджеров
-                //TODO Добавить метод показа всех менеджеров
+                ShowManagers(managers);
                 break;
             case '0': // 0. Выход
                 exit = true;
