@@ -1,9 +1,11 @@
 ﻿#include <iostream>
 #include <vector>
+#include <string>
 
 #include "Student.h"
 #include "Teacher.h"
 #include "Manager.h"
+#include "Utilites.h"
 
 #include "menu.h"
 #include "cli.h"
@@ -20,10 +22,14 @@ system("chcp 65001");
 
     bool exit = false;
     char select;
+
+    string path;
+
     do {
         ShowMenu();
         cout << "Введите номер: ";
         cin >> select;
+        choosePath(select, path);
 
         switch (select) {
             case '1': // 1. Добавить студента
