@@ -4,7 +4,8 @@
 
 enum Position { Director, Sales };
 
-class Manager {
+class Manager
+{
 public:
 	Person personal_info;
 	Position position;

@@ -14,5 +14,13 @@ void ShowStudent(Student student)
     cout << student.personal_info.ToString();
     cout << "Рейтинг: " << student.rating << endl;
     cout << "Факультет: " << FacultyToString(student.faculty) << endl;
-    cout << "-----------------------------" << endl;
+    cout << "-------------------------------" << endl;
+}
+
+void ShowTeacher(Teacher teacher)
+{
+    cout << "=== Информация о переподавателе ===" << endl;
+    cout << teacher.personal_info.ToString();
+    cout << "Кафедра: " << SubjectToString(teacher.subject) << endl;
+    cout << "-------------------------------" << endl;
 }

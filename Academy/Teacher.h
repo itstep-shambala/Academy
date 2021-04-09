@@ -2,9 +2,22 @@
 
 #include "Person.h"
 
-enum Subject { Graphics, Development };
+enum Subject { Graphics, Development, NoSubject };
 
-class Teacher {
+string SubjectToString(Subject subject)
+{
+	switch (subject) {
+		case Graphics:
+			return " √иƒ";
+		case Development:
+			return"–ѕќ";
+		case NoSubject:
+			return "не выбрано";
+	}
+}
+
+class Teacher
+{
 public:
 	Person personal_info;
 	Subject subject;

@@ -15,6 +15,13 @@ void ShowStudents(vector<Student> students)
 
 void ShowTeachers(vector<Teacher> teachers)
 {
+    for (auto teacher : teachers) {
+        ShowTeacher(teacher);
+    }
+}
+
+void ShowManagers(vector<Manager> managers)
+{
     //TODO Написать реализацию по выводу информации о преподавателях
 }
 
@@ -43,10 +50,41 @@ void InputStudent(vector<Student>& students)
         temp.faculty = Faculty::SoftDev;
     } else if (temp_faculty == 'D' || temp_faculty == 'd') {
         temp.faculty = Faculty::Design;
-    } else (temp.faculty = Faculty::None);
+    } else {
+        temp.faculty = Faculty::NoFaculty;
+    }
     students.push_back(temp);
 }
 
-//TODO Написать реализацию по вводу информации о преподавателях
+void InputTeacher(vector<Teacher>& teachers)
+{   //TODO Упростить функцию
+    Teacher temp;
+    char temp_sex, temp_subject;
+    cout << "Ввод данных о перподавателе" << endl;
+    cout << "Введите имя - "; cin >> temp.personal_info.name;
+    cout << "Введите возраст - "; cin >> temp.personal_info.age;
+    cout << "Введите пол: M - мужской, F - женский "; cin >> temp_sex;
+    if (temp_sex == 'M') {
+        temp.personal_info.sex = Sex::Male;
+    }
+    else if (temp_sex == 'F') {
+        temp.personal_info.sex = Sex::Female;
+    }
+    else {
+        temp.personal_info.sex = Sex::Unknown;
+    }
+    cout << "Введите кафедру: D - РПО, G - КГиД ";
+    cin >> temp_subject;
+    if (temp_subject == 'G' || temp_subject == 'g') {
+        temp.subject = Subject::Graphics;
+    }
+    else if (temp_subject == 'D' || temp_subject == 'd') {
+        temp.subject = Subject::Development;
+    }
+    else {
+        temp.subject = Subject::NoSubject;
+    }
+    teachers.push_back(temp);
+}
 
 //TODO Написать реализацию по вводу информации о менеджерах
