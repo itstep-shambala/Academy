@@ -31,20 +31,38 @@ system("chcp 65001");
 
         switch (select) {
             case '1': // 1. Добавить студента
-                path = "01_Students.csv";
-                InputStudent(students, message);
-                WriteToFile(path, message);
-                break;
+               {path = "01_Students.csv";
+               InputStudent(students, message);
+               bool isWrite = WriteToFile(path, message);
+               if (isWrite) {
+                   cout << "Recording finished: " << path << endl;
+               }
+               else {
+                   cerr << "Recording error: " << path << endl;
+               }
+               break; }
             case '2': // 2. Добавить преподавателя
-                path = "02_Teachers.csv";
-                InputTeacher(teachers);
-                WriteToFile(path, message);
-                break;
+                {path = "02_Teachers.csv";
+                InputTeacher(teachers, message);
+                bool isWrite = WriteToFile(path, message);
+                if (isWrite) {
+                    cout << "Recording finished: " << path << endl;
+                }
+                else {
+                    cerr << "Recording error: " << path << endl;
+                }
+                break; }
             case '3': // 3. Добавить менеджера
-                path = "03_Managers.csv";
-                InputManager(managers);
-                WriteToFile(path, message);
-                break;
+                {path = "03_Managers.csv";
+                InputManager(managers, message);
+                bool isWrite = WriteToFile(path, message);
+                if (isWrite) {
+                    cout << "Recording finished: " << path << endl;
+                }
+                else {
+                    cerr << "Recording error: " << path << endl;
+                }
+                break; }
             case '4': // 4. Показать всех студентов
                 ShowStudents(students);
                 break;
