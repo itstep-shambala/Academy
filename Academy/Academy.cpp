@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
+#include <string>
+#pragma warning(default:4716)
 
 #include "Student.h"
 #include "Teacher.h"
@@ -8,51 +10,80 @@
 #include "menu.h"
 #include "cli.h"
 
-using namespace std;
-
 int main()
 {
-system("chcp 65001");
+	system("chcp 65001");
 
-    vector<Student> students;
-    vector<Teacher> teachers;
-    vector<Manager> managers;
+	vector<Student> students;
+	vector<Teacher> teachers;
+	vector<Manager> managers;
 
-    bool exit = false;
-    char select;
-    do {
-        ShowMenu();
-        cout << "Введите номер: ";
-        cin >> select;
+	string pathMan = "D:\\Programming\\source\\repos\\Academy\\Academy\\Manager.csv";
+	string pathTeach = R"(D:\Programming\source\repos\Academy\Academy\Teacher.csv)";
+	string pathStud = "D:\\Programming\\source\\repos\\Academy\\Academy\\Student.csv";
 
-        switch (select) {
-            case '1': // 1. Добавить студента
-                InputStudent(students);
-                break;
-            case '2': // 2. Добавить преподавателя
-                //TODO Добавить метод ввода данных о преподавателе
-                break;
-            case '3': // 3. Добавить менеджера
-                //TODO Добавить метод ввода данных о менеджере
-                break;
-            case '4': // 4. Показать всех студентов
-                ShowStudents(students);
-                break;
-            case '5': // 5. Показать всех преподавателей
-                ShowTeachers(teachers);
-                break;
-            case '6': // 6. Показать всех менеджеров
-                //TODO Добавить метод показа всех менеджеров
-                break;
-            case '0': // 0. Выход
-                exit = true;
-                break;
-            default:
-                break;
-        }
-    } while (!exit);
+	bool exit = false;
+	char select;
+	do {
+		ShowMenu();
+		cin >> select;
 
-    cout << "До свидания...";
+		switch (select) {
+		case '1':   // 1. Добавить студента
+		{
+			bool isWrite = WriteToFileStudent(pathStud);;
+			if (isWrite) {
+				ShowRecording(pathStud);
+			}
+			else {
+				ShowNoRecording(pathStud);
+			}
+			break;
+		}
+		case '2': // 2. Добавить преподавателя
+		{
+			bool isWrite = WriteToFileTeacher(pathTeach);
+			if (isWrite) {
+				ShowRecording(pathTeach);
+			}
+			else {
+				ShowNoRecording(pathTeach);
+			}
+			break;
+		}
+		case '3': // 3. Добавить менеджера
+		{
+			bool isWrite = WriteToFileManager(pathMan);
+			if (isWrite) {
+				ShowRecording(pathMan);
+			}
+			else {
+				ShowNoRecording(pathMan);
+			}
+			break;
+		}
+		case '4': // 4. Показать всех студентов
+			ReadFromFileStudent(pathStud, students);
+			ShowStudents(students);
+			break;
+		case '5': // 5. Показать всех преподавателей
+			ReadFromFileTeacher(pathTeach, teachers);
+			ShowTeachers(teachers);
+			break;
+		case '6': // 6. Показать всех менеджеров
+			ReadFromFileManager(pathMan, managers);
+			ShowManagers(managers);
+			break;
+		case '0': // 0. Выход
+			exit = true;
+			break;
+		default:
+			void Caution();
+			break;
+		}
+	} while (!exit);
+	setlocale(LC_ALL, "rus");
+	cout << "До свидания..." << endl;
 
 	return 0;
 }
